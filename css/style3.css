@@ -1,0 +1,147 @@
+/* --- GIAO DIỆN HỘP TÍNH TIỀN HÓA ĐƠN --- */
+.invoice-calculator-section {
+    background: rgba(11, 15, 25, 0.3);
+    padding: 30px;
+    border-radius: 24px;
+    border: 1px solid var(--border-line);
+}
+
+.calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+/* Định dạng các ô nhập liệu bên trái */
+.form-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-gray);
+}
+
+.input-group input, .input-group select {
+    background: rgba(11, 15, 25, 0.6);
+    border: 1px solid var(--border-line);
+    padding: 14px 18px;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.input-group input:focus, .input-group select:focus {
+    border-color: var(--ruby-red);
+    box-shadow: 0 0 10px rgba(255, 42, 59, 0.2);
+}
+
+/* Định dạng phiếu hóa đơn in tiền bên phải */
+.invoice-preview {
+    background: #ffffff;
+    color: #1e272e;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    border-top: 6px solid var(--ruby-red);
+    display: flex;
+    flex-direction: column;
+}
+
+.invoice-header h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #0b0f19;
+}
+
+.invoice-header p {
+    font-size: 0.8rem;
+    color: #747d8c;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.divider {
+    border-bottom: 2px dashed #ced6e0;
+    margin: 15px 0;
+}
+
+.invoice-body p {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #2f3542;
+}
+
+.invoice-body strong {
+    color: #0b0f19;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #57606f;
+}
+
+.price-num {
+    font-weight: 600;
+    color: #0b0f19;
+}
+
+/* Hàng tổng tiền kích thước lớn màu đỏ nổi bật */
+.total-row {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--ruby-red) !important;
+    margin-top: 10px;
+}
+
+/* Nút lệnh in hóa đơn thực tế */
+.btn-print {
+    margin-top: auto;
+    background: #0b0f19;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-print:hover {
+    background: var(--ruby-red);
+}
+
+/* --- HIỆU ỨNG TỰ ĐỘNG ẨN CÁC THÀNH PHẦN KHÁC KHI BẤM IN RA GIẤY --- */
+@media print {
+    body { background: white; color: black; padding: 0; }
+    .nav-container, .contact-header, .info-section:not(.invoice-calculator-section), .form-inputs, .btn-print, footer, .bg-glow-1, .bg-glow-2 {
+        display: none !important;
+    }
+    .invoice-calculator-section { border: none; padding: 0; }
+    .calculator-container { grid-template-columns: 1fr; }
+    .invoice-preview { box-shadow: none; border: none; padding: 0; width: 100%; }
+}
+
+/* Responsive điện thoại */
+@media (max-width: 768px) {
+    .calculator-container { grid-template-columns: 1fr; gap: 25px; }
+    .invoice-preview { padding: 25px 20px; }
+}

@@ -2,172 +2,262 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa Hàng Xe Máy Huỳnh Phương</title>
+    <!-- Nhúng font chữ hiện đại -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    
+    <style>
+        /* --- GIAO DIỆN HỆ THỐNG --- */
+        :root {
+            --primary-color: #e22127; /* Đỏ thể thao Huỳnh Phương */
+            --dark-color: #1a1a1a;    /* Đen lịch lãm */
+            --light-bg: #f8f9fa;      /* Nền xám nhạt */
+            --text-muted: #666;       /* Chữ phụ */
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
 
-<title>Trang Chủ Website</title>
-<meta name="description" content="Trang chủ điều hướng đến các trang HTML">
-<meta name="robots" content="index,follow">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        /* --- HEADER & BANNER --- */
+        header {
+            background: linear-gradient(135deg, #111 0%, #222 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
 
-body{
-    font-family:'Poppins',sans-serif;
-    background:linear-gradient(135deg,#0f172a,#1e293b,#2563eb);
-    min-height:100vh;
-    color:white;
-}
+        /* Hiệu ứng viền đỏ mờ phía sau header */
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(226,33,39,0.15) 0%, transparent 60%);
+            z-index: 1;
+        }
 
-header{
-    text-align:center;
-    padding:80px 20px 40px;
-}
+        header .header-content {
+            position: relative;
+            z-index: 2;
+        }
 
-header h1{
-    font-size:3rem;
-    margin-bottom:15px;
-}
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
 
-header p{
-    opacity:.9;
-    max-width:700px;
-    margin:auto;
-}
+        header h1 span {
+            color: var(--primary-color);
+        }
 
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:20px;
-}
+        header p {
+            font-size: 1.1rem;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-    margin-top:40px;
-}
+        /* --- KHU VỰC NỘI DUNG (CARDS) --- */
+        .container {
+            max-width: 1240px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
 
-.card{
-    background:rgba(255,255,255,.1);
-    backdrop-filter:blur(15px);
-    border-radius:20px;
-    padding:25px;
-    transition:.3s;
-    border:1px solid rgba(255,255,255,.15);
-}
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
 
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 15px 30px rgba(0,0,0,.25);
-}
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
 
-.card h2{
-    margin-bottom:10px;
-}
+        /* Hiệu ứng lướt chuột qua card */
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(226, 33, 39, 0.15);
+            border-color: rgba(226, 33, 39, 0.2);
+        }
 
-.card p{
-    opacity:.8;
-    margin-bottom:20px;
-}
+        /* Khung chứa ảnh */
+        .card-img-wrapper {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
 
-.btn{
-    display:inline-block;
-    text-decoration:none;
-    background:#38bdf8;
-    color:#000;
-    padding:12px 20px;
-    border-radius:10px;
-    font-weight:600;
-}
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
 
-.btn:hover{
-    background:#7dd3fc;
-}
+        .card:hover img {
+            transform: scale(1.08);
+        }
 
-.url{
-    font-size:13px;
-    margin-top:10px;
-    opacity:.7;
-    word-break:break-all;
-}
+        /* Nội dung chữ trong card */
+        .card-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
 
-footer{
-    text-align:center;
-    padding:40px 20px;
-    opacity:.8;
-}
-</style>
+        .card h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        /* Nút bấm điều hướng liên kết */
+        .btn {
+            display: block;
+            text-align: center;
+            padding: 12px 20px;
+            background-color: #f1f2f6;
+            color: var(--dark-color);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        /* Hiệu ứng nút bấm khi hover */
+        .card:hover .btn {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--dark-color);
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 100px;
+            border-top: 3px solid var(--primary-color);
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <h1>🚀 Website Của Tôi</h1>
-    <p>
-        Chọn một trang bên dưới để truy cập.
-        Tất cả các đường dẫn HTML đều được hiển thị trực tiếp.
-    </p>
-</header>
-
-<div class="container">
-
-    <div class="grid">
-
-        <div class="card">
-            <h2>📖 Giới Thiệu</h2>
-            <p>Thông tin về dự án hoặc cá nhân.</p>
-            <a href="gioi-thieu.html" class="btn">Mở Trang</a>
-            <div class="url">about.html</div>
+    <!-- Khung Tiêu Đề Đầu Trang -->
+    <header>
+        <div class="header-content">
+            <h1>Cửa Hàng Xe Máy <span>Huỳnh Phương</span></h1>
+            <p>Hệ thống phân phối xe máy chính hãng, dịch vụ bảo dưỡng chuyên nghiệp và trả góp lãi suất ưu đãi.</p>
         </div>
+    </header>
 
-        <div class="card">
-            <h2>📰 Blog</h2>
-            <p>Giới thiệup>
-            <a href="san-pham.html" class="btn">Mở Trang</a>
-            <div class="url">https://github.com/TKW-22526/final-test-web-design-nhutphuong496.git/gioi-thieu.html</div>
+    <!-- Khung Danh Mục Điều Hướng Chính -->
+    <div class="container">
+        <div class="cards">
+
+            <!-- Thẻ 1: Giới thiệu -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://unsplash.com" alt=" Huỳnh Phương">
+                </div>
+                <div class="card-content">
+                    <h2>📖 Giới Thiệu</h2>
+                    <p>Khám phá hành trình phát triển, sứ mệnh và cam kết chất lượng dịch vụ của Cửa hàng Huỳnh Phương.</p>
+                    <a href="html/gioithieu.html" class="btn">Xem Ngay</a>
+                </div>
+            </div>
+
+            <!-- Thẻ 2: Sản phẩm -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1622185135505-2d795003994a" alt="Mẫu xe nổi bật">
+                </div>
+                <div class="card-content">
+                    <h2>🏍️ Sản Phẩm</h2>
+                    <p>Bảng mẫu các dòng xe tay ga, xe số, xe côn tay thể thao mới nhất đang có mặt sẵn tại showroom.</p>
+                    <a href="html/san-pham.html" class="btn">Xem Ngay</a>
+                </div>
+            </div>
+
+            <!-- Thẻ 3: Chi tiết -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1558981285-6f0c94958bb6" alt="Thông số kỹ thuật">
+                </div>
+                <div class="card-content">
+                    <h2>📊 Chi Tiết</h2>
+                    <p>Xem thông số kỹ thuật chi tiết, chính sách bảo hành động cơ và bảng giá lăn bánh tạm tính.</p>
+                    <a href="html/chi-tiet.html" class="btn">Xem Ngay</a>
+                </div>
+            </div>
+
+            <!-- Thẻ 4: Liên hệ -->
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c" alt="Liên hệ cửa hàng">
+                </div>
+                <div class="card-content">
+                    <h2>📞 Liên Hệ</h2>
+                    <p>Địa chỉ cửa hàng, số điện thoại hotline tư vấn nhanh và bản đồ hướng dẫn đường đi.</p>
+                    <a href="html/lien-he.html" class="btn">Xem Ngay</a>
+                </div>
+            </div>
+
         </div>
-
-        <div class="card">
-            <h2>📷 Thư Viện</h2>
-            <p>Hình ảnh và tài nguyên.</p>
-            <a href="gallery.html" class="btn">Mở Trang</a>
-            <div class="url">gallery.html</div>
-        </div>
-
-        <div class="card">
-            <h2>📞 Liên Hệ</h2>
-            <p>Thông tin liên hệ và hỗ trợ.</p>
-            <a href="contact.html" class="btn">Mở Trang</a>
-            <div class="url">contact.html</div>
-        </div>
-
-        <div class="card">
-            <h2>⚙️ Dịch Vụ</h2>
-            <p>Danh sách sản phẩm hoặc dịch vụ.</p>
-            <a href="services.html" class="btn">Mở Trang</a>
-            <div class="url">services.html</div>
-        </div>
-
-        <div class="card">
-            <h2>📚 Tài Liệu</h2>
-            <p>Hướng dẫn và tài liệu dự án.</p>
-            <a href="docs.html" class="btn">Mở Trang</a>
-            <div class="url">docs.html</div>
-        </div>
-
     </div>
 
-</div>
-
-<footer>
-    © 2026 Website của bạn
-</footer>
+    <!-- Chân trang -->
+    <footer>
+        <p>&copy; 2026 Cửa Hàng Xe Máy Huỳnh Phương. Tất cả các quyền được bảo lưu.</p>
+    </footer>
 
 </body>
 </html>
