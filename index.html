@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Trang Chủ Website</title>
+<meta name="description" content="Trang chủ điều hướng đến các trang HTML">
+<meta name="robots" content="index,follow">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#0f172a,#1e293b,#2563eb);
+    min-height:100vh;
+    color:white;
+}
+
+header{
+    text-align:center;
+    padding:80px 20px 40px;
+}
+
+header h1{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+header p{
+    opacity:.9;
+    max-width:700px;
+    margin:auto;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.card{
+    background:rgba(255,255,255,.1);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    padding:25px;
+    transition:.3s;
+    border:1px solid rgba(255,255,255,.15);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+}
+
+.card h2{
+    margin-bottom:10px;
+}
+
+.card p{
+    opacity:.8;
+    margin-bottom:20px;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    background:#38bdf8;
+    color:#000;
+    padding:12px 20px;
+    border-radius:10px;
+    font-weight:600;
+}
+
+.btn:hover{
+    background:#7dd3fc;
+}
+
+.url{
+    font-size:13px;
+    margin-top:10px;
+    opacity:.7;
+    word-break:break-all;
+}
+
+footer{
+    text-align:center;
+    padding:40px 20px;
+    opacity:.8;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>🚀 Website Của Tôi</h1>
+    <p>
+        Chọn một trang bên dưới để truy cập.
+        Tất cả các đường dẫn HTML đều được hiển thị trực tiếp.
+    </p>
+</header>
+
+<div class="container">
+
+    <div class="grid">
+
+        <div class="card">
+            <h2>📖 Giới Thiệu</h2>
+            <p>Thông tin về dự án hoặc cá nhân.</p>
+            <a href="gioi-thieu.html" class="btn">Mở Trang</a>
+            <div class="url">about.html</div>
+        </div>
+
+        <div class="card">
+            <h2>📰 Blog</h2>
+            <p>Giới thiệup>
+            <a href="san-pham.html" class="btn">Mở Trang</a>
+            <div class="url">https://github.com/TKW-22526/final-test-web-design-nhutphuong496.git/gioi-thieu.html</div>
+        </div>
+
+        <div class="card">
+            <h2>📷 Thư Viện</h2>
+            <p>Hình ảnh và tài nguyên.</p>
+            <a href="gallery.html" class="btn">Mở Trang</a>
+            <div class="url">gallery.html</div>
+        </div>
+
+        <div class="card">
+            <h2>📞 Liên Hệ</h2>
+            <p>Thông tin liên hệ và hỗ trợ.</p>
+            <a href="contact.html" class="btn">Mở Trang</a>
+            <div class="url">contact.html</div>
+        </div>
+
+        <div class="card">
+            <h2>⚙️ Dịch Vụ</h2>
+            <p>Danh sách sản phẩm hoặc dịch vụ.</p>
+            <a href="services.html" class="btn">Mở Trang</a>
+            <div class="url">services.html</div>
+        </div>
+
+        <div class="card">
+            <h2>📚 Tài Liệu</h2>
+            <p>Hướng dẫn và tài liệu dự án.</p>
+            <a href="docs.html" class="btn">Mở Trang</a>
+            <div class="url">docs.html</div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Website của bạn
+</footer>
+
+</body>
+</html>

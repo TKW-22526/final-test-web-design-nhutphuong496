@@ -1,0 +1,435 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0d0f12; 
+    color: #e2e8f0;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+header {
+    background-color: rgba(13, 15, 18, 0.92);
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+}
+
+.logo h1 {
+    color: #d4af37; 
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #fff;
+    font-weight: 300;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #94a3b8;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #d4af37;
+}
+
+
+.hero {
+    background: linear-gradient(rgba(13, 15, 18, 0.5), rgba(13, 15, 18, 0.85)), 
+                url('https://unsplash.com') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.hero-content h2 {
+    font-size: 56px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 4px;
+    color: #fff;
+    font-weight: 900;
+    
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    font-weight: 400;
+    color: #cbd5e1;
+    letter-spacing: 1px;
+}
+
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff3333 0%, #a30000 100%); 
+    color: #fff;
+    padding: 14px 38px;
+    border-radius: 4px; 
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 13px;
+    box-shadow: 0 4px 20px rgba(255, 51, 51, 0.3);
+    transition: all 0.3s var(--transition);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(255, 51, 51, 0.5);
+    background: linear-gradient(135deg, #ff4d4d 0%, #b30000 100%);
+}
+
+
+.about {
+    padding: 100px 0;
+    background-color: #13171c; 
+    text-align: center;
+}
+
+.section-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background-color: #d4af37;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.about p {
+    max-width: 750px;
+    margin: 25px auto 0 auto;
+    color: #94a3b8;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+.products {
+    padding: 100px 0;
+    background-color: #0d0f12;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.product-card {
+    background-color: #13171c;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(212, 175, 55, 0.4); 
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.product-img {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.product-img::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, transparent 40%, #13171c);
+}
+
+.img-sport { 
+    background-image: url('../assets/xemay.jpg'); 
+    width: 300px;       
+    height: 200px;     
+    background-size: cover; 
+    background-position: center; 
+}
+
+.img-scooter { 
+    background-image: url('../assets/xega.jpg'); 
+    width: 300px; 
+    height: 200px; 
+    background-size: cover; 
+    background-position: center;
+}
+
+.img-cub { 
+    background-image: url('../assets/xeso.jpg'); 
+    width: 300px; 
+    height: 200px; 
+    background-size: cover; 
+    background-position: center;
+}
+.product-info {
+    padding: 25px 30px 30px 30px;
+}
+
+
+summary {
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 0;
+    outline: none;
+    transition: color 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+summary::-webkit-details-marker { display: none; }
+
+summary:hover {
+    color: #d4af37;
+}
+
+summary::after {
+    content: "+";
+    font-size: 22px;
+    font-weight: 300;
+    color: #d4af37;
+    transition: transform 0.3s ease;
+}
+
+details[open] summary::after {
+    transform: rotate(45deg);
+    color: #ff3333;
+}
+
+.details-content {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    animation: slideDown 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.details-content p {
+    color: #94a3b8;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.price {
+    display: block;
+    color: #d4af37;
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 15px;
+    letter-spacing: 0.5px;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.services {
+    background-color: #13171c;
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.service-box {
+    padding: 45px 30px;
+    background-color: #0d0f12;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    transition: all 0.3s ease;
+}
+
+.service-box:hover {
+    border-color: rgba(212, 175, 55, 0.2);
+    background-color: #181d24;
+    transform: translateY(-5px);
+}
+
+.service-box h3 {
+    margin-bottom: 15px;
+    color: #d4af37;
+    font-size: 20px;
+}
+
+.service-box p {
+    color: #94a3b8;
+    font-size: 15px;
+}
+
+
+.contact {
+    padding: 100px 0;
+    background-color: #0d0f12;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    gap: 50px;
+}
+
+.contact-info, .contact-form {
+    flex: 1;
+    min-width: 320px;
+}
+
+.contact-info h3 {
+    margin-bottom: 25px;
+    font-size: 26px;
+    color: #fff;
+}
+
+.contact-info p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #94a3b8;
+}
+
+.contact-info strong {
+    color: #d4af37;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #13171c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    color: #fff;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: #d4af37;
+    background-color: #181d24;
+}
+
+.btn-submit {
+    border: none; 
+    cursor: pointer; 
+    width: 100%;
+}
+
+/* --- Chân trang (Footer) --- */
+footer {
+    background-color: #08090b;
+    color: #475569;
+    text-align: center;
+    padding: 35px 0;
+    font-size: 13px;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    letter-spacing: 0.5px;
+}
+
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        padding: 15px 0;
+    }
+    nav ul {
+        margin-top: 20px;
+    }
+    nav ul li {
+        margin: 0 12px;
+    }
+    .hero-content h2 {
+        font-size: 36px;
+    }
+    .hero-content p {
+        font-size: 16px;
+    }
+}
